@@ -48,40 +48,40 @@ const UpcomingReminders: React.FC<UpcomingRemindersProps> = ({ className }) => {
   const getIcon = (iconType: string) => {
     switch (iconType) {
       case 'calendar':
-        return <Calendar className="h-4 w-4" />;
+        return <Calendar className="h-3 w-3" />;
       case 'yoga':
-        return <Calendar className="h-4 w-4" />;
+        return <Calendar className="h-3 w-3" />;
       case 'ultrasound':
-        return <Calendar className="h-4 w-4" />;
+        return <Calendar className="h-3 w-3" />;
       default:
-        return <Calendar className="h-4 w-4" />;
+        return <Calendar className="h-3 w-3" />;
     }
   };
 
   return (
-    <Card className={cn("overflow-hidden bg-blue-50/60", className)}>
-      <CardHeader className="pb-2">
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100/60 shadow-sm", className)}>
+      <CardHeader className="pb-1 p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Bell className="h-5 w-5 text-blue-500" />
-            <h3 className="text-lg font-medium">Upcoming Reminders</h3>
+            <Bell className="h-4 w-4 text-blue-500" />
+            <h3 className="text-sm font-medium">Upcoming Reminders</h3>
           </div>
-          <a href="#" className="text-sm text-blue-500 hover:underline">View all</a>
+          <a href="#" className="text-xs text-blue-500 hover:underline">View all</a>
         </div>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-3">
+      <CardContent className="p-4 pt-0">
+        <div className="space-y-2">
           {reminders.map(reminder => (
-            <div key={reminder.id} className="rounded-xl bg-white p-3">
-              <div className="flex gap-3 items-start">
-                <div className={cn("rounded-md p-1.5", reminder.color)}>
+            <div key={reminder.id} className="rounded-lg bg-white shadow-sm p-2">
+              <div className="flex gap-2 items-start">
+                <div className={cn("rounded-md p-1", reminder.color)}>
                   {getIcon(reminder.icon)}
                 </div>
                 <div className="flex-1">
-                  <div className="text-sm text-gray-500">
+                  <div className="text-[10px] text-gray-500">
                     {reminder.date}, {reminder.time}
                   </div>
-                  <div className="font-medium">{reminder.title}</div>
+                  <div className="font-medium text-xs">{reminder.title}</div>
                 </div>
               </div>
             </div>

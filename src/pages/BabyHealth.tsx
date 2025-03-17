@@ -13,22 +13,22 @@ import DailyTips from "@/components/DailyTips";
 const BabyHealth = () => {
   if (featureFlags.babyHealthEnabled) {
     return (
-      <div className="min-h-screen pb-24 px-4 bg-red-50"> {/* Apply soft red-pink hue */}
+      <div className="min-h-screen pb-24 px-4 bg-gradient-to-b from-red-50 to-pink-50/70">
         <Header />
         <main className="max-w-lg mx-auto">
-          <h1 className="text-2xl font-medium tracking-tight mb-6 animate-slide-down">Baby Health</h1>
+          <h1 className="text-xl font-medium tracking-tight mb-4 animate-slide-down">Baby Health</h1>
           
-          <div className="space-y-6">
-            <BabyDevelopment className="w-full" />
+          <div className="space-y-4">
+            <div className="flex gap-4">
+              <BabyDevelopment className="w-1/2 shadow-md hover:shadow-lg transition-shadow duration-300" />
+              <MomsHealth className="w-1/2 shadow-md hover:shadow-lg transition-shadow duration-300" />
+            </div>
             
-            <MomsHealth className="w-full" />
+            <PregnancyJourney className="w-full shadow-md hover:shadow-lg transition-shadow duration-300" />
             
-            <PregnancyJourney className="w-full" />
-            
-            <div className="grid grid-cols-1 gap-6">
-              <UpcomingReminders className="w-full" />
-              
-              <DailyTips className="w-full" />
+            <div className="grid grid-cols-2 gap-4">
+              <UpcomingReminders className="shadow-md hover:shadow-lg transition-shadow duration-300" />
+              <DailyTips className="shadow-md hover:shadow-lg transition-shadow duration-300" />
             </div>
           </div>
         </main>

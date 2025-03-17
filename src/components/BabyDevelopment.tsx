@@ -10,17 +10,17 @@ interface BabyDevelopmentProps {
 
 const BabyDevelopment: React.FC<BabyDevelopmentProps> = ({ className }) => {
   return (
-    <Card className={cn("overflow-hidden bg-green-50/60", className)}>
-      <CardHeader className="pb-2">
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-green-50 to-green-100/60 shadow-sm", className)}>
+      <CardHeader className="pb-1 p-4">
         <div className="flex items-center gap-2">
-          <Baby className="h-5 w-5 text-teal-500" />
-          <h3 className="text-lg font-medium">Baby Development</h3>
+          <Baby className="h-4 w-4 text-teal-500" />
+          <h3 className="text-sm font-medium">Baby Development</h3>
         </div>
       </CardHeader>
-      <CardContent>
-        <div className="flex items-center gap-4">
+      <CardContent className="p-4 pt-0">
+        <div className="flex items-center gap-3">
           <div className="flex-shrink-0">
-            <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-pink-300">
+            <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-pink-300 shadow-sm">
               <img 
                 src="/lovable-uploads/f3f57254-c181-4fa8-89f9-05ad70fa83bc.png" 
                 alt="Baby at week 12" 
@@ -29,8 +29,8 @@ const BabyDevelopment: React.FC<BabyDevelopmentProps> = ({ className }) => {
             </div>
           </div>
           <div>
-            <h4 className="font-medium text-base mb-1">Week 12 Highlights</h4>
-            <p className="text-sm text-gray-700">
+            <h4 className="font-medium text-xs mb-1">Week 12 Highlights</h4>
+            <p className="text-xs text-gray-700">
               Your baby's lungs are forming air sacs, eyes shifting to the front, and ears moving to the sides!
             </p>
           </div>
