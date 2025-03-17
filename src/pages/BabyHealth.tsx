@@ -1,21 +1,35 @@
+
 import React from "react";
 import Header from "@/components/Header";
 import BottomBar from "@/components/BottomBar";
-import AdCard from "@/components/AdCard";
 import { featureFlags } from "@/config/features";
 import { cn } from "@/lib/utils";
+import BabyDevelopment from "@/components/BabyDevelopment";
+import MomsHealth from "@/components/MomsHealth";
+import PregnancyJourney from "@/components/PregnancyJourney";
+import UpcomingReminders from "@/components/UpcomingReminders";
+import DailyTips from "@/components/DailyTips";
 
 const BabyHealth = () => {
   if (featureFlags.babyHealthEnabled) {
-    // Render actual BabyHealth component here
     return (
-      <div className="min-h-screen pb-24 px-4 bg-red-100"> {/* Apply red-pink hue */}
+      <div className="min-h-screen pb-24 px-4 bg-red-50"> {/* Apply soft red-pink hue */}
         <Header />
-        <main>
+        <main className="max-w-lg mx-auto">
           <h1 className="text-2xl font-medium tracking-tight mb-6 animate-slide-down">Baby Health</h1>
-          <div>{/* Actual Baby Health Content */}</div>
-          <div className="mt-8">
-            <AdCard variant="medium" />
+          
+          <div className="space-y-6">
+            <BabyDevelopment className="w-full" />
+            
+            <MomsHealth className="w-full" />
+            
+            <PregnancyJourney className="w-full" />
+            
+            <div className="grid grid-cols-1 gap-6">
+              <UpcomingReminders className="w-full" />
+              
+              <DailyTips className="w-full" />
+            </div>
           </div>
         </main>
         <BottomBar />
@@ -60,10 +74,6 @@ const BabyHealth = () => {
               </ul>
             </div>
           </div>
-        </div>
-        
-        <div className="mt-8">
-          <AdCard variant="medium" />
         </div>
       </main>
       
