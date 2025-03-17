@@ -1,5 +1,6 @@
+
 export const featureFlags = {
-  babyHealthEnabled: false,
+  babyHealthEnabled: true, // Set to true to enable Baby Health feature
   insightsEnabled: false,
   sharedEnabled: true, // Set to true to enable Inner Circle feature
   walletEnabled: false,
