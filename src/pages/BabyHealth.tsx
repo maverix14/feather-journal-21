@@ -9,8 +9,11 @@ import MomsHealth from "@/components/MomsHealth";
 import PregnancyJourney from "@/components/PregnancyJourney";
 import UpcomingReminders from "@/components/UpcomingReminders";
 import DailyTips from "@/components/DailyTips";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const BabyHealth = () => {
+  const isMobile = useIsMobile();
+  
   if (featureFlags.babyHealthEnabled) {
     return (
       <div className="min-h-screen pb-24 px-4 bg-gradient-to-b from-red-50 to-pink-50/70">
@@ -19,9 +22,9 @@ const BabyHealth = () => {
           <h1 className="text-xl font-medium tracking-tight mb-4 animate-slide-down">Baby Health</h1>
           
           <div className="space-y-4">
-            <div className="flex gap-4">
-              <BabyDevelopment className="w-1/2 shadow-md hover:shadow-lg transition-shadow duration-300" />
-              <MomsHealth className="w-1/2 shadow-md hover:shadow-lg transition-shadow duration-300" />
+            <div className={cn("grid gap-4", isMobile ? "grid-cols-1" : "grid-cols-2")}>
+              <BabyDevelopment className="shadow-md hover:shadow-lg transition-shadow duration-300" />
+              <MomsHealth className="shadow-md hover:shadow-lg transition-shadow duration-300" />
             </div>
             
             <PregnancyJourney className="w-full shadow-md hover:shadow-lg transition-shadow duration-300" />

@@ -4,12 +4,15 @@ import { cn } from "@/lib/utils";
 import { Heart, Activity, Apple } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface MomsHealthProps {
   className?: string;
 }
 
 const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
+  const isMobile = useIsMobile();
+  
   return (
     <Card className={cn("overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100/60 shadow-sm", className)}>
       <CardHeader className="pb-1 p-4">
@@ -19,7 +22,7 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
         </div>
       </CardHeader>
       <CardContent className="p-4 pt-0">
-        <div className="grid grid-cols-2 gap-3">
+        <div className={cn("grid gap-3", isMobile ? "grid-cols-1" : "grid-cols-2")}>
           <div className="rounded-xl bg-white shadow-sm p-3">
             <div className="text-center mb-1">
               <span className="text-blue-600 font-medium text-xs">Mom's Weight</span>

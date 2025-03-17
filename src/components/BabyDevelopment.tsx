@@ -18,8 +18,8 @@ const BabyDevelopment: React.FC<BabyDevelopmentProps> = ({ className }) => {
         </div>
       </CardHeader>
       <CardContent className="p-4 pt-0">
-        <div className="flex items-center gap-3">
-          <div className="flex-shrink-0">
+        <div className="flex flex-col gap-3">
+          <div className="flex justify-center">
             <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-pink-300 shadow-sm">
               <img 
                 src="/lovable-uploads/f3f57254-c181-4fa8-89f9-05ad70fa83bc.png" 
@@ -28,7 +28,7 @@ const BabyDevelopment: React.FC<BabyDevelopmentProps> = ({ className }) => {
               />
             </div>
           </div>
-          <div>
+          <div className="text-center">
             <h4 className="font-medium text-xs mb-1">Week 12 Highlights</h4>
             <p className="text-xs text-gray-700">
               Your baby's lungs are forming air sacs, eyes shifting to the front, and ears moving to the sides!
