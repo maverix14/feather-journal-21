@@ -4,21 +4,39 @@ import Header from "@/components/Header";
 import BottomBar from "@/components/BottomBar";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { Slider } from "@/components/ui/slider";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/context/ThemeContext";
-import { Moon, Sun, Globe, Volume2, Bell, Info, FileText, Monitor } from "lucide-react";
+import { useFontSize } from "@/context/FontSizeContext";
+import { useSound } from "@/context/SoundContext";
+import { FileText, Info, Sun, Monitor, Moon, Volume2 } from "lucide-react";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const Settings = () => {
   const { toast } = useToast();
   const { theme, setTheme } = useTheme();
+  const { fontSize, setFontSize } = useFontSize();
+  const { soundEnabled, toggleSound, playSound } = useSound();
   
   const handleSave = () => {
+    playSound("success");
     toast({
       title: "Settings saved",
       description: "Your preferences have been updated",
     });
+  };
+
+  const handleFontSizeChange = (size: string) => {
+    if (size && (size === "small" || size === "medium" || size === "large")) {
+      setFontSize(size);
+      playSound("click");
+    }
+  };
+
+  const handleThemeChange = (newTheme: string) => {
+    if (newTheme && (newTheme === "light" || newTheme === "dark" || newTheme === "system")) {
+      setTheme(newTheme);
+      playSound("click");
+    }
   };
 
   return (
@@ -42,93 +60,68 @@ const Settings = () => {
                   <Monitor className="w-4 h-4" />
                   <label className="text-sm font-medium">Theme</label>
                 </div>
-                <div className="grid grid-cols-3 gap-2">
-                  <Button
-                    variant={theme === "light" ? "default" : "outline"}
-                    className="flex items-center justify-center gap-2"
-                    onClick={() => setTheme("light")}
-                  >
+                <ToggleGroup 
+                  type="single" 
+                  value={theme}
+                  onValueChange={handleThemeChange}
+                  className="grid grid-cols-3 gap-2"
+                >
+                  <ToggleGroupItem value="light" className="flex items-center justify-center gap-2">
                     <Sun className="h-4 w-4" />
                     <span>Light</span>
-                  </Button>
-                  <Button
-                    variant={theme === "dark" ? "default" : "outline"}
-                    className="flex items-center justify-center gap-2"
-                    onClick={() => setTheme("dark")}
-                  >
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="dark" className="flex items-center justify-center gap-2">
                     <Moon className="h-4 w-4" />
                     <span>Dark</span>
-                  </Button>
-                  <Button
-                    variant={theme === "system" ? "default" : "outline"}
-                    className="flex items-center justify-center gap-2"
-                    onClick={() => setTheme("system")}
-                  >
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="system" className="flex items-center justify-center gap-2">
                     <Monitor className="h-4 w-4" />
                     <span>System</span>
-                  </Button>
-                </div>
+                  </ToggleGroupItem>
+                </ToggleGroup>
               </div>
               
-              <div className="flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <div className="flex items-center gap-2">
-                    <Moon className="w-4 h-4" />
-                    <label htmlFor="dark-mode" className="text-sm font-medium">
-                      Dark Mode
-                    </label>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    Switch between light and dark themes
-                  </p>
-                </div>
-                <Switch 
-                  id="dark-mode" 
-                  checked={theme === "dark"}
-                  onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-                />
-              </div>
-              
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <Sun className="w-4 h-4" />
                   <label className="text-sm font-medium">Font Size</label>
                 </div>
-                <p className="text-xs text-muted-foreground mb-2">
-                  Adjust the size of text throughout the app
-                </p>
-                <Slider 
-                  defaultValue={[16]} 
-                  max={24} 
-                  min={12} 
-                  step={1}
-                />
-                <div className="flex justify-between text-xs text-muted-foreground pt-1">
-                  <span>Small</span>
-                  <span>Large</span>
-                </div>
+                <ToggleGroup 
+                  type="single" 
+                  value={fontSize}
+                  onValueChange={handleFontSizeChange} 
+                  className="grid grid-cols-3 gap-2"
+                >
+                  <ToggleGroupItem value="small" className="flex items-center justify-center">
+                    <span className="text-xs">Small</span>
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="medium" className="flex items-center justify-center">
+                    <span>Medium</span>
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="large" className="flex items-center justify-center">
+                    <span className="text-lg">Large</span>
+                  </ToggleGroupItem>
+                </ToggleGroup>
               </div>
               
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Globe className="w-4 h-4" />
-                  <label className="text-sm font-medium">Language</label>
+              <div className="opacity-50">
+                <div className="flex items-center justify-between">
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 flex items-center justify-center">
+                        <span className="text-xs font-semibold">EN</span>
+                      </div>
+                      <label className="text-sm font-medium">
+                        Language
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <p className="text-xs text-muted-foreground">
+                        Coming soon
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-xs text-muted-foreground mb-2">
-                  Select your preferred language
-                </p>
-                <Select defaultValue="en">
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select language" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="en">English</SelectItem>
-                    <SelectItem value="es">Español</SelectItem>
-                    <SelectItem value="fr">Français</SelectItem>
-                    <SelectItem value="de">Deutsch</SelectItem>
-                    <SelectItem value="pt">Português</SelectItem>
-                  </SelectContent>
-                </Select>
               </div>
             </div>
           </div>
@@ -144,21 +137,6 @@ const Settings = () => {
               <div className="flex items-center justify-between">
                 <div className="space-y-0.5">
                   <div className="flex items-center gap-2">
-                    <Bell className="w-4 h-4" />
-                    <label htmlFor="push-notifications" className="text-sm font-medium">
-                      Push Notifications
-                    </label>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    Receive notifications for new activity
-                  </p>
-                </div>
-                <Switch id="push-notifications" defaultChecked />
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <div className="flex items-center gap-2">
                     <Volume2 className="w-4 h-4" />
                     <label htmlFor="sound" className="text-sm font-medium">
                       Sound Effects
@@ -168,7 +146,14 @@ const Settings = () => {
                     Play sounds for app interactions
                   </p>
                 </div>
-                <Switch id="sound" />
+                <Switch 
+                  id="sound" 
+                  checked={soundEnabled}
+                  onCheckedChange={() => {
+                    toggleSound();
+                    playSound("click");
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -181,19 +166,32 @@ const Settings = () => {
             </div>
             
             <div className="space-y-4">
-              <Button variant="outline" className="w-full justify-start" size="sm">
+              <Button 
+                variant="outline" 
+                className="w-full justify-start" 
+                size="sm"
+                onClick={() => playSound("click")}
+              >
                 <Info className="mr-2 h-4 w-4" />
                 About Pregnancy Journal
               </Button>
               
-              <Button variant="outline" className="w-full justify-start" size="sm">
+              <Button 
+                variant="outline" 
+                className="w-full justify-start" 
+                size="sm"
+                onClick={() => playSound("click")}
+              >
                 <FileText className="mr-2 h-4 w-4" />
                 Terms & Privacy Policy
               </Button>
             </div>
           </div>
           
-          <Button onClick={handleSave} className="w-full neo-shadow hover:neo-inset transition-all duration-300">
+          <Button 
+            onClick={handleSave} 
+            className="w-full neo-shadow hover:neo-inset transition-all duration-300"
+          >
             Save Changes
           </Button>
         </div>

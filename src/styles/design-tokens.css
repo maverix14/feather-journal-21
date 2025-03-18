@@ -87,6 +87,11 @@
     --tip-500: 38 100% 65%;
     --tip-700: 38 90% 45%;
     
+    /* Font sizes - Default is medium */
+    --font-small: 0.85;
+    --font-medium: 1;
+    --font-large: 1.15;
+    
     /* Radius */
     --radius: 0.5rem;
   }
@@ -146,6 +151,28 @@
     --tip-500: 38 70% 55%;
     --tip-700: 38 80% 65%;
   }
+  
+  /* Font size classes */
+  .text-size-small {
+    --compact-text-xs: 7px;
+    --compact-text-sm: 8px;
+    --compact-text-base: 9px;
+    --compact-text-lg: 10px;
+  }
+  
+  .text-size-medium {
+    --compact-text-xs: 8px;
+    --compact-text-sm: 9px;
+    --compact-text-base: 10px;
+    --compact-text-lg: 11px;
+  }
+  
+  .text-size-large {
+    --compact-text-xs: 9px;
+    --compact-text-sm: 10px;
+    --compact-text-base: 11px;
+    --compact-text-lg: 12px;
+  }
 }
 
 /* Global styles */
@@ -195,19 +222,22 @@
   }
   
   .compact-card-title {
-    @apply text-[10px] font-medium;
+    font-size: var(--compact-text-lg);
+    @apply font-medium;
   }
   
   .compact-card-content {
-    @apply text-[9px];
+    font-size: var(--compact-text-base);
   }
   
   .compact-card-data {
-    @apply text-[11px] font-semibold;
+    font-size: var(--compact-text-lg);
+    @apply font-semibold;
   }
   
   .compact-card-label {
-    @apply text-[8px] text-muted-foreground;
+    font-size: var(--compact-text-xs);
+    @apply text-muted-foreground;
   }
   
   .neo-shadow {
