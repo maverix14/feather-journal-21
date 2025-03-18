@@ -2,28 +2,18 @@
 import React from "react";
 import Header from "@/components/Header";
 import BottomBar from "@/components/BottomBar";
-import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/context/ThemeContext";
 import { useFontSize } from "@/context/FontSizeContext";
 import { useSound } from "@/context/SoundContext";
 import { FileText, Info, Sun, Monitor, Moon, Volume2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const Settings = () => {
-  const { toast } = useToast();
   const { theme, setTheme } = useTheme();
   const { fontSize, setFontSize } = useFontSize();
   const { soundEnabled, toggleSound, playSound } = useSound();
-  
-  const handleSave = () => {
-    playSound("success");
-    toast({
-      title: "Settings saved",
-      description: "Your preferences have been updated",
-    });
-  };
 
   const handleFontSizeChange = (size: string) => {
     if (size && (size === "small" || size === "medium" || size === "large")) {
@@ -187,13 +177,6 @@ const Settings = () => {
               </Button>
             </div>
           </div>
-          
-          <Button 
-            onClick={handleSave} 
-            className="w-full neo-shadow hover:neo-inset transition-all duration-300"
-          >
-            Save Changes
-          </Button>
         </div>
       </main>
       
