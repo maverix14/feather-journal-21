@@ -16,20 +16,20 @@ const BabyHealth = () => {
   
   if (featureFlags.babyHealthEnabled) {
     return (
-      <div className="min-h-screen pb-24 px-4 bg-gradient-to-b from-red-50 to-pink-50/70">
+      <div className="min-h-screen pb-24 bg-gradient-to-b from-red-50 to-pink-50/70">
         <Header />
-        <main className="max-w-lg mx-auto">
-          <h1 className="text-xl font-medium tracking-tight mb-4 animate-slide-down">Baby Health</h1>
+        <main className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h1 className="text-xl font-medium tracking-tight my-4 animate-slide-down">Health and Updates</h1>
           
-          <div className="space-y-4">
-            <div className={cn("grid gap-4", isMobile ? "grid-cols-1" : "grid-cols-2")}>
+          <div className="space-y-5">
+            <div className={cn("grid gap-5", isMobile ? "grid-cols-1" : "grid-cols-2")}>
               <BabyDevelopment className="shadow-md hover:shadow-lg transition-shadow duration-300" />
               <MomsHealth className="shadow-md hover:shadow-lg transition-shadow duration-300" />
             </div>
             
             <PregnancyJourney className="w-full shadow-md hover:shadow-lg transition-shadow duration-300" />
             
-            <div className="grid grid-cols-2 gap-4">
+            <div className={cn("grid gap-5", isMobile ? "grid-cols-1" : "grid-cols-2")}>
               <UpcomingReminders className="shadow-md hover:shadow-lg transition-shadow duration-300" />
               <DailyTips className="shadow-md hover:shadow-lg transition-shadow duration-300" />
             </div>

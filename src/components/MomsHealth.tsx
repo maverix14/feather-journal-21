@@ -1,7 +1,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Heart, Activity, Apple } from "lucide-react";
+import { Heart, Activity, Apple, Zap, Droplets } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -14,59 +14,72 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
   const isMobile = useIsMobile();
   
   return (
-    <Card className={cn("overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100/60 shadow-sm", className)}>
-      <CardHeader className="pb-1 p-4">
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-blue-50 to-purple-100/60 shadow-sm", className)}>
+      <CardHeader className="pb-1 p-3">
         <div className="flex items-center gap-2">
-          <Heart className="h-4 w-4 text-blue-500" />
-          <h3 className="text-sm font-medium">Mom's Health</h3>
+          <Heart className="h-3.5 w-3.5 text-purple-500" />
+          <h3 className="text-xs font-medium">Mom's Health</h3>
         </div>
       </CardHeader>
-      <CardContent className="p-4 pt-0">
+      <CardContent className="p-3 pt-0">
         <div className={cn("grid gap-3", isMobile ? "grid-cols-1" : "grid-cols-2")}>
-          <div className="rounded-xl bg-white shadow-sm p-3">
+          <div className="rounded-xl bg-white/90 shadow-sm p-2">
             <div className="text-center mb-1">
-              <span className="text-blue-600 font-medium text-xs">Mom's Weight</span>
+              <span className="text-purple-600 font-medium text-[10px]">Weight Tracking</span>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex items-center justify-between px-1">
+              <div className="flex items-center gap-1">
+                <Activity className="h-3 w-3 text-purple-400" />
+                <span className="text-[8px] text-gray-500">This Week</span>
+              </div>
               <div className="flex items-center">
-                <span className="text-blue-500 text-lg font-bold">+</span>
-                <span className="text-blue-500 text-xl font-bold">0.5</span>
+                <span className="text-purple-500 text-xs font-bold">+</span>
+                <span className="text-purple-500 text-sm font-bold">0.5</span>
+                <span className="text-[8px] text-gray-500 ml-0.5">kg</span>
               </div>
-              <span className="text-xs text-gray-500">kg this week</span>
-              <div className="w-full mt-1">
-                <div className="h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div className="h-full bg-blue-400 rounded-full" style={{ width: '60%' }}></div>
-                </div>
-              </div>
-              <span className="text-[10px] text-gray-500 mt-0.5">Healthy weight gain on track</span>
             </div>
+            <div className="w-full mt-1.5">
+              <div className="h-1.5 w-full bg-purple-100 rounded-full overflow-hidden">
+                <div className="h-full bg-purple-400 rounded-full" style={{ width: '60%' }}></div>
+              </div>
+            </div>
+            <span className="text-[8px] text-gray-500 block mt-0.5 text-center">Healthy weight gain on track</span>
           </div>
           
-          <div className="rounded-xl bg-white shadow-sm p-3">
+          <div className="rounded-xl bg-white/90 shadow-sm p-2">
             <div className="text-center mb-1">
-              <span className="text-green-600 font-medium text-xs">Mom's Nutrition</span>
+              <span className="text-teal-600 font-medium text-[10px]">Daily Nutrition</span>
             </div>
             <div className="space-y-1.5">
               <div>
-                <div className="flex justify-between text-[10px] mb-0.5">
-                  <span>Protein</span>
+                <div className="flex justify-between items-center text-[8px] mb-0.5">
+                  <div className="flex items-center gap-1">
+                    <Apple className="h-2.5 w-2.5 text-green-500" />
+                    <span>Protein</span>
+                  </div>
                   <span>75%</span>
                 </div>
-                <Progress value={75} className="h-1.5 bg-green-100" />
+                <Progress value={75} className="h-1 bg-green-100" indicatorColor="bg-green-500" />
               </div>
               <div>
-                <div className="flex justify-between text-[10px] mb-0.5">
-                  <span>Hydration</span>
+                <div className="flex justify-between items-center text-[8px] mb-0.5">
+                  <div className="flex items-center gap-1">
+                    <Droplets className="h-2.5 w-2.5 text-blue-500" />
+                    <span>Hydration</span>
+                  </div>
                   <span>60%</span>
                 </div>
-                <Progress value={60} className="h-1.5 bg-blue-100" />
+                <Progress value={60} className="h-1 bg-blue-100" indicatorColor="bg-blue-500" />
               </div>
               <div>
-                <div className="flex justify-between text-[10px] mb-0.5">
-                  <span>Vitamins</span>
+                <div className="flex justify-between items-center text-[8px] mb-0.5">
+                  <div className="flex items-center gap-1">
+                    <Zap className="h-2.5 w-2.5 text-amber-500" />
+                    <span>Vitamins</span>
+                  </div>
                   <span>90%</span>
                 </div>
-                <Progress value={90} className="h-1.5 bg-purple-100" />
+                <Progress value={90} className="h-1 bg-amber-100" indicatorColor="bg-amber-500" />
               </div>
             </div>
           </div>
