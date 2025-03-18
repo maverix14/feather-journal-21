@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import BottomBar from "@/components/BottomBar";
@@ -239,7 +240,7 @@ const InnerCircle = () => {
   // Render feature flag (unavailable in guest mode) page
   if (isGuestMode) {
     return (
-      <div className="min-h-screen pb-24 px-4 sm:px-16 md:px-24 lg:px-32" style={{ backgroundColor: "#e0f2f1" }}>
+      <div className="min-h-screen pb-24 px-4 sm:px-16 md:px-24 lg:px-32 bg-gradient-to-b from-health-50 to-health-100/70 dark:from-health-50 dark:to-black/20">
         <Header />
         <main className="flex flex-col items-center justify-center mt-12">
           <div className="bg-white rounded-xl shadow-sm p-8 text-center max-w-md w-full animate-fade-in">
@@ -298,7 +299,7 @@ const InnerCircle = () => {
   const isPrivateTab = selectedTab === "private";
 
   return (
-    <div className="min-h-screen pb-24 px-4 sm:px-16 md:px-24 lg:px-32" style={{ backgroundColor: "#e0f2f1" }}>
+    <div className="min-h-screen pb-24 px-4 sm:px-16 md:px-24 lg:px-32 bg-gradient-to-b from-health-50 to-health-100/70 dark:from-health-50 dark:to-black/20">
       <Header />
       <main>
         <h1 className="text-2xl font-medium tracking-tight mb-6 animate-slide-down">Inner Circle</h1>

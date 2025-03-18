@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Feather, HeartPulse, HeartHandshake, Home } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -58,7 +59,7 @@ const BottomBar: React.FC<BottomBarProps> = ({ className }) => {
                   to={isHomePage ? "/new" : "/"}
                   className={cn(
                     "w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg absolute left-1/2 -translate-x-1/2 -top-7 transition-transform hover:scale-110 active:scale-95",
-                    !isHomePage ? "bg-black/50" : ""
+                    !isHomePage ? "bg-black/50 dark:bg-gray-300 dark:text-gray-800" : ""
                   )}
                   aria-label={isHomePage ? "New Entry" : "Home"}
                 >
