@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 function darkenColor(hexColor: string, percent: number): string {
@@ -50,39 +51,89 @@ export default {
       }
     },
     extend: {
+      fontFamily: {
+        sans: ['Roboto', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        background: darkenedBackground,
-        foreground: '#000000', // Changed to black for better contrast
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))'
+          foreground: 'hsl(var(--primary-foreground))',
+          50: 'hsl(var(--primary-50))',
+          100: 'hsl(var(--primary-100))',
+          200: 'hsl(var(--primary-200))',
+          300: 'hsl(var(--primary-300))',
+          400: 'hsl(var(--primary-400))',
+          500: 'hsl(var(--primary-500))',
+          600: 'hsl(var(--primary-600))',
+          700: 'hsl(var(--primary-700))',
+          800: 'hsl(var(--primary-800))',
+          900: 'hsl(var(--primary-900))',
+          950: 'hsl(var(--primary-950))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))'
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))'
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))'
+          foreground: 'hsl(var(--secondary-foreground))',
+          50: 'hsl(var(--secondary-50))',
+          100: 'hsl(var(--secondary-100))',
+          200: 'hsl(var(--secondary-200))',
+          300: 'hsl(var(--secondary-300))',
+          400: 'hsl(var(--secondary-400))',
+          500: 'hsl(var(--secondary-500))',
+          600: 'hsl(var(--secondary-600))',
+          700: 'hsl(var(--secondary-700))',
+          800: 'hsl(var(--secondary-800))',
+          900: 'hsl(var(--secondary-900))',
+          950: 'hsl(var(--secondary-950))',
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))'
+          foreground: 'hsl(var(--popover-foreground))',
         },
         card: {
           DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))'
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        // Component-specific color themes
+        baby: {
+          50: 'hsl(var(--baby-50))',
+          100: 'hsl(var(--baby-100))',
+          500: 'hsl(var(--baby-500))',
+          600: 'hsl(var(--baby-600))',
+        },
+        health: {
+          50: 'hsl(var(--health-50))',
+          100: 'hsl(var(--health-100))',
+          400: 'hsl(var(--health-400))',
+          500: 'hsl(var(--health-500))',
+          600: 'hsl(var(--health-600))',
+        },
+        reminder: {
+          50: 'hsl(var(--reminder-50))',
+          100: 'hsl(var(--reminder-100))',
+          500: 'hsl(var(--reminder-500))',
+        },
+        tip: {
+          50: 'hsl(var(--tip-50))',
+          100: 'hsl(var(--tip-100))',
+          500: 'hsl(var(--tip-500))',
+          700: 'hsl(var(--tip-700))',
         },
       },
       borderRadius: {
@@ -123,6 +174,11 @@ export default {
           '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 255, 255, 0.4)' },
           '50%': { boxShadow: '0 0 0 8px rgba(255, 255, 255, 0)' },
         },
+        'sound-wave': {
+          '0%': { transform: 'scaleY(0.5)' },
+          '50%': { transform: 'scaleY(1)' },
+          '100%': { transform: 'scaleY(0.5)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -133,12 +189,21 @@ export default {
         'slide-down': 'slide-down 0.3s ease-out',
         'scale-in': 'scale-in 0.3s ease-out',
         'pulse-light': 'pulse-light 1.5s infinite',
+        'sound-wave': 'sound-wave 1s ease-in-out infinite',
       },
       boxShadow: {
         'neo-light': '5px 5px 10px #d1d1d1, -5px -5px 10px transparent',
         'neo-dark': '5px 5px 10px #151515, -5px -5px 10px #353535',
         'neo-inset': 'inset 2px 2px 5px #d1d1d1, inset -2px -2px 5px #ffffff',
         'neo-inset-dark': 'inset 2px 2px 5px #151515, inset -2px -2px 5px #353535',
+        'card': '0px 2px 8px rgba(0, 0, 0, 0.1)',
+        'card-hover': '0px 4px 12px rgba(0, 0, 0, 0.15)',
+      },
+      spacing: {
+        'page-mobile': '1rem', // 16px
+        'page-sm': '4rem',     // 64px
+        'page-md': '6rem',     // 96px
+        'page-lg': '8rem',     // 128px
       },
     }
   },

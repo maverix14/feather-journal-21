@@ -14,10 +14,10 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
   const isMobile = useIsMobile();
   
   return (
-    <Card className={cn("overflow-hidden bg-gradient-to-br from-green-50 to-emerald-100/60 shadow-sm h-full", className)}>
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-health-50 to-health-100/60 shadow-card h-full", className)}>
       <CardHeader className="pb-1 p-3">
         <div className="flex items-center gap-2">
-          <Heart className="h-3.5 w-3.5 text-emerald-500" />
+          <Heart className="h-3.5 w-3.5 text-health-500" />
           <h3 className="text-xs font-medium">Mom's Health</h3>
         </div>
       </CardHeader>
@@ -26,63 +26,63 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
           "grid gap-3 h-full", 
           isMobile ? "grid-cols-2" : "grid-cols-2"
         )}>
-          <div className="rounded-xl bg-white/90 shadow-sm p-2 flex flex-col h-full">
+          <div className="rounded-xl bg-white/90 dark:bg-white/10 shadow-sm p-2 flex flex-col h-full">
             <div className="text-center mb-1">
-              <span className="text-emerald-600 font-medium text-[10px]">Weight Tracking</span>
+              <span className="compact-card-title text-health-600">Weight Tracking</span>
             </div>
             <div className="flex items-center justify-between px-1">
               <div className="flex items-center gap-1">
-                <Activity className="h-3 w-3 text-emerald-400" />
-                <span className="text-[8px] text-gray-500">This Week</span>
+                <Activity className="h-3 w-3 text-health-400" />
+                <span className="compact-card-label">This Week</span>
               </div>
               <div className="flex items-center">
-                <span className="text-emerald-500 text-xs font-bold">+</span>
-                <span className="text-emerald-500 text-sm font-bold">0.5</span>
-                <span className="text-[8px] text-gray-500 ml-0.5">kg</span>
+                <span className="text-health-500 text-xs font-bold">+</span>
+                <span className="text-health-500 text-sm font-bold">0.5</span>
+                <span className="compact-card-label ml-0.5">kg</span>
               </div>
             </div>
             <div className="w-full mt-1.5 flex-grow flex flex-col justify-center">
-              <div className="h-1.5 w-full bg-emerald-100 rounded-full overflow-hidden">
-                <div className="h-full bg-emerald-400 rounded-full" style={{ width: '60%' }}></div>
+              <div className="h-1.5 w-full bg-health-100 dark:bg-health-500/20 rounded-full overflow-hidden">
+                <div className="h-full bg-health-400 rounded-full" style={{ width: '60%' }}></div>
               </div>
-              <span className="text-[8px] text-gray-500 block mt-0.5 text-center">Healthy weight gain on track</span>
+              <span className="compact-card-label block mt-0.5 text-center">Healthy weight gain on track</span>
             </div>
           </div>
           
-          <div className="rounded-xl bg-white/90 shadow-sm p-2 flex flex-col h-full">
+          <div className="rounded-xl bg-white/90 dark:bg-white/10 shadow-sm p-2 flex flex-col h-full">
             <div className="text-center mb-1">
-              <span className="text-emerald-600 font-medium text-[10px]">Daily Nutrition</span>
+              <span className="compact-card-title text-health-600">Daily Nutrition</span>
             </div>
             <div className="space-y-1.5 flex-grow flex flex-col justify-center">
               <div>
-                <div className="flex justify-between items-center text-[8px] mb-0.5">
+                <div className="flex justify-between items-center mb-0.5">
                   <div className="flex items-center gap-1">
                     <Apple className="h-2.5 w-2.5 text-green-500" />
-                    <span>Protein</span>
+                    <span className="compact-card-label">Protein</span>
                   </div>
-                  <span>75%</span>
+                  <span className="compact-card-label">75%</span>
                 </div>
-                <Progress value={75} className="h-1 bg-green-100" indicatorColor="bg-green-500" />
+                <Progress value={75} className="h-1 bg-green-100 dark:bg-green-900/30" indicatorColor="bg-green-500" />
               </div>
               <div>
-                <div className="flex justify-between items-center text-[8px] mb-0.5">
+                <div className="flex justify-between items-center mb-0.5">
                   <div className="flex items-center gap-1">
                     <Droplets className="h-2.5 w-2.5 text-blue-500" />
-                    <span>Hydration</span>
+                    <span className="compact-card-label">Hydration</span>
                   </div>
-                  <span>60%</span>
+                  <span className="compact-card-label">60%</span>
                 </div>
-                <Progress value={60} className="h-1 bg-blue-100" indicatorColor="bg-blue-500" />
+                <Progress value={60} className="h-1 bg-blue-100 dark:bg-blue-900/30" indicatorColor="bg-blue-500" />
               </div>
               <div>
-                <div className="flex justify-between items-center text-[8px] mb-0.5">
+                <div className="flex justify-between items-center mb-0.5">
                   <div className="flex items-center gap-1">
                     <Zap className="h-2.5 w-2.5 text-amber-500" />
-                    <span>Vitamins</span>
+                    <span className="compact-card-label">Vitamins</span>
                   </div>
-                  <span>90%</span>
+                  <span className="compact-card-label">90%</span>
                 </div>
-                <Progress value={90} className="h-1 bg-amber-100" indicatorColor="bg-amber-500" />
+                <Progress value={90} className="h-1 bg-amber-100 dark:bg-amber-900/30" indicatorColor="bg-amber-500" />
               </div>
             </div>
           </div>

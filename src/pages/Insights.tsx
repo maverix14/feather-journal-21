@@ -1,3 +1,4 @@
+
 import React from "react";
 import Header from "@/components/Header";
 import BottomBar from "@/components/BottomBar";
@@ -8,10 +9,10 @@ const Insights = () => {
   if (featureFlags.insightsEnabled) {
     // Render actual Insights component here
     return (
-      <div className="min-h-screen pb-24 px-4">
+      <div className="page-container">
         <Header />
         <main>
-          <h1 className="text-2xl font-medium tracking-tight mb-6 animate-slide-down">Insights</h1>
+          <h1 className="heading-1 mb-6 animate-slide-down">Insights</h1>
           <div>{/* Actual Insights Content */}</div>
           <div className="mt-8">
             <AdCard variant="medium" />
@@ -23,19 +24,19 @@ const Insights = () => {
   }
 
   return (
-    <div className="min-h-screen pb-24 px-4">
+    <div className="page-container">
       <Header />
       
       <main>
-        <h1 className="text-2xl font-medium tracking-tight mb-6 animate-slide-down">Insights</h1>
+        <h1 className="heading-1 mb-6 animate-slide-down">Insights</h1>
         
-        <div className="space-y-1 mb-8 animate-fade-in">
-          <h2 className="text-sm text-muted-foreground font-medium">COMING SOON</h2>
-          <div className="h-px bg-border w-full"></div>
+        <div className="section-container animate-fade-in">
+          <h2 className="section-title">COMING SOON</h2>
+          <div className="section-divider"></div>
         </div>
         
-        <div className="rounded-xl neo-shadow p-8 text-center animate-fade-in">
-          <h3 className="text-xl font-medium mb-4">Personalized Insights</h3>
+        <div className="card-container neo-shadow p-8 text-center animate-fade-in">
+          <h3 className="heading-2 mb-4">Personalized Insights</h3>
           <p className="text-muted-foreground mb-6">
             This feature is coming soon! You'll be able to unlock personalized insights based on your journal entries:
           </p>

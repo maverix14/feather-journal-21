@@ -16,22 +16,22 @@ const BabyHealth = () => {
   
   if (featureFlags.babyHealthEnabled) {
     return (
-      <div className="min-h-screen pb-24 bg-gradient-to-b from-red-50 to-pink-50/70">
+      <div className="page-container bg-gradient-to-b from-red-50 to-pink-50/70 dark:from-red-950/30 dark:to-pink-950/20">
         <Header />
-        <main className="max-w-6xl mx-auto px-4 sm:px-6">
-          <h1 className="text-xl font-medium tracking-tight my-4 animate-slide-down">Health and Updates</h1>
+        <main className="max-w-6xl mx-auto">
+          <h1 className="heading-1 my-4 animate-slide-down">Health and Updates</h1>
           
           <div className="space-y-5">
             <div className={cn("grid gap-5", isMobile ? "grid-cols-1" : "grid-cols-2")}>
-              <BabyDevelopment className="shadow-md hover:shadow-lg transition-shadow duration-300" />
-              <MomsHealth className="shadow-md hover:shadow-lg transition-shadow duration-300" />
+              <BabyDevelopment className="transition-shadow duration-300" />
+              <MomsHealth className="transition-shadow duration-300" />
             </div>
             
-            <PregnancyJourney className="w-full shadow-md hover:shadow-lg transition-shadow duration-300" />
+            <PregnancyJourney className="w-full transition-shadow duration-300" />
             
             <div className={cn("grid gap-5", isMobile ? "grid-cols-1" : "grid-cols-2")}>
-              <UpcomingReminders className="shadow-md hover:shadow-lg transition-shadow duration-300" />
-              <DailyTips className="shadow-md hover:shadow-lg transition-shadow duration-300" />
+              <UpcomingReminders className="transition-shadow duration-300" />
+              <DailyTips className="transition-shadow duration-300" />
             </div>
           </div>
         </main>
@@ -41,19 +41,19 @@ const BabyHealth = () => {
   }
 
   return (
-    <div className="min-h-screen pb-24 px-4 bg-red-100"> {/* Apply red-pink hue */}
+    <div className="page-container bg-red-100 dark:bg-red-950/30">
       <Header />
       
       <main>
-        <h1 className="text-2xl font-medium tracking-tight mb-6 animate-slide-down">Baby Health</h1>
+        <h1 className="heading-1 mb-6 animate-slide-down">Baby Health</h1>
         
-        <div className="space-y-1 mb-8 animate-fade-in">
-          <h2 className="text-sm text-muted-foreground font-medium">COMING SOON</h2>
-          <div className="h-px bg-border w-full"></div>
+        <div className="section-container animate-fade-in">
+          <h2 className="section-title">COMING SOON</h2>
+          <div className="section-divider"></div>
         </div>
         
-        <div className="rounded-xl neo-shadow p-8 text-center animate-fade-in">
-          <h3 className="text-xl font-medium mb-4">Pregnancy Tracking & Baby Health</h3>
+        <div className="card-container neo-shadow p-8 text-center animate-fade-in">
+          <h3 className="heading-2 mb-4">Pregnancy Tracking & Baby Health</h3>
           <p className="text-muted-foreground mb-6">
             This feature is coming soon! You'll be able to track your pregnancy journey, including:
           </p>

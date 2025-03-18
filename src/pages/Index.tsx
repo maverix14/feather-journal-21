@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import BottomBar from "@/components/BottomBar";
@@ -93,7 +94,7 @@ const Index = () => {
 
     if (entries.length === 0) {
       return (
-        <div className="text-center py-8 bg-white/80 rounded-xl shadow-sm">
+        <div className="text-center py-8 bg-white/80 dark:bg-white/5 rounded-xl shadow-card">
           <p className="text-muted-foreground mb-2">No journal entries yet.</p>
           <p className="text-sm text-muted-foreground">Create your first entry using the + button below!</p>
         </div>
@@ -124,15 +125,15 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen pb-24 px-4 sm:px-16 md:px-24 lg:px-32">
+    <div className="page-container">
       <Header />
       
       <main>
-        <h1 className="text-2xl font-medium tracking-tight mb-6 animate-slide-down">My Journal</h1>
+        <h1 className="heading-1 mb-6 animate-slide-down">My Journal</h1>
         
-        <div className="space-y-1 mb-8 animate-fade-in">
-          <h2 className="text-sm text-muted-foreground font-medium">RECENT ENTRIES</h2>
-          <div className="h-px bg-border w-full"></div>
+        <div className="section-container animate-fade-in">
+          <h2 className="section-title">RECENT ENTRIES</h2>
+          <div className="section-divider"></div>
         </div>
         
         <div className="space-y-4">

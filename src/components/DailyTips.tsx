@@ -37,22 +37,25 @@ const DailyTips: React.FC<DailyTipsProps> = ({ className }) => {
   ];
 
   return (
-    <Card className={cn("overflow-hidden bg-gradient-to-br from-amber-50 to-orange-100/60 shadow-sm h-full", className)}>
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-tip-50 to-tip-100/60 shadow-card h-full", className)}>
       <CardHeader className="pb-1 p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Lightbulb className="h-3.5 w-3.5 text-amber-500" />
+            <Lightbulb className="h-3.5 w-3.5 text-tip-500" />
             <h3 className="text-xs font-medium">Daily Tips</h3>
           </div>
-          <a href="#" className="text-[9px] text-amber-500 hover:underline">View all</a>
+          <a href="#" className="text-[9px] text-tip-500 hover:underline">View all</a>
         </div>
       </CardHeader>
       <CardContent className="p-3 pt-0">
         <div className={cn("space-y-1.5", isMobile && "pt-1")}>
           {tips.map(tip => (
-            <div key={tip.id} className="border-b border-amber-100/50 pb-1.5 last:border-b-0 last:pb-0 hover:bg-white/40 p-1 rounded-sm transition-colors">
-              <h4 className="font-medium text-[9px] mb-0.5 text-amber-700">{tip.title}</h4>
-              <p className="text-[8px] text-gray-600">{tip.description}</p>
+            <div 
+              key={tip.id} 
+              className="border-b border-tip-100/50 pb-1.5 last:border-b-0 last:pb-0 hover:bg-white/40 dark:hover:bg-white/10 p-1 rounded-sm transition-colors"
+            >
+              <h4 className="compact-card-title text-tip-700">{tip.title}</h4>
+              <p className="compact-card-content text-gray-600 dark:text-gray-300">{tip.description}</p>
             </div>
           ))}
         </div>

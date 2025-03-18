@@ -1,3 +1,4 @@
+
 import React from "react";
 import Header from "@/components/Header";
 import BottomBar from "@/components/BottomBar";
@@ -6,10 +7,12 @@ import { Switch } from "@/components/ui/switch";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Moon, Sun, Globe, Volume2, Bell, Info, FileText } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
+import { Moon, Sun, Globe, Volume2, Bell, Info, FileText, Monitor } from "lucide-react";
 
 const Settings = () => {
   const { toast } = useToast();
+  const { theme, setTheme } = useTheme();
   
   const handleSave = () => {
     toast({
@@ -19,21 +22,54 @@ const Settings = () => {
   };
 
   return (
-    <div className="min-h-screen pb-24 px-4">
+    <div className="page-container">
       <Header />
       
       <main>
-        <h1 className="text-2xl font-medium tracking-tight mb-6 animate-slide-down">Settings</h1>
+        <h1 className="heading-1 mb-6 animate-slide-down">Settings</h1>
         
         <div className="space-y-8 animate-fade-in">
           {/* Appearance Settings */}
-          <div className="space-y-4">
-            <div className="space-y-1 mb-4">
-              <h2 className="text-sm text-muted-foreground font-medium">APPEARANCE</h2>
-              <div className="h-px bg-border w-full"></div>
+          <div className="section-container">
+            <div className="mb-4">
+              <h2 className="section-title">APPEARANCE</h2>
+              <div className="section-divider"></div>
             </div>
             
             <div className="space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Monitor className="w-4 h-4" />
+                  <label className="text-sm font-medium">Theme</label>
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  <Button
+                    variant={theme === "light" ? "default" : "outline"}
+                    className="flex items-center justify-center gap-2"
+                    onClick={() => setTheme("light")}
+                  >
+                    <Sun className="h-4 w-4" />
+                    <span>Light</span>
+                  </Button>
+                  <Button
+                    variant={theme === "dark" ? "default" : "outline"}
+                    className="flex items-center justify-center gap-2"
+                    onClick={() => setTheme("dark")}
+                  >
+                    <Moon className="h-4 w-4" />
+                    <span>Dark</span>
+                  </Button>
+                  <Button
+                    variant={theme === "system" ? "default" : "outline"}
+                    className="flex items-center justify-center gap-2"
+                    onClick={() => setTheme("system")}
+                  >
+                    <Monitor className="h-4 w-4" />
+                    <span>System</span>
+                  </Button>
+                </div>
+              </div>
+              
               <div className="flex items-center justify-between">
                 <div className="space-y-0.5">
                   <div className="flex items-center gap-2">
@@ -46,7 +82,11 @@ const Settings = () => {
                     Switch between light and dark themes
                   </p>
                 </div>
-                <Switch id="dark-mode" defaultChecked />
+                <Switch 
+                  id="dark-mode" 
+                  checked={theme === "dark"}
+                  onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+                />
               </div>
               
               <div className="space-y-2">
@@ -94,10 +134,10 @@ const Settings = () => {
           </div>
           
           {/* Notifications Settings */}
-          <div className="space-y-4">
-            <div className="space-y-1 mb-4">
-              <h2 className="text-sm text-muted-foreground font-medium">NOTIFICATIONS</h2>
-              <div className="h-px bg-border w-full"></div>
+          <div className="section-container">
+            <div className="mb-4">
+              <h2 className="section-title">NOTIFICATIONS</h2>
+              <div className="section-divider"></div>
             </div>
             
             <div className="space-y-6">
@@ -134,10 +174,10 @@ const Settings = () => {
           </div>
           
           {/* About & Legal */}
-          <div className="space-y-4">
-            <div className="space-y-1 mb-4">
-              <h2 className="text-sm text-muted-foreground font-medium">ABOUT & LEGAL</h2>
-              <div className="h-px bg-border w-full"></div>
+          <div className="section-container">
+            <div className="mb-4">
+              <h2 className="section-title">ABOUT & LEGAL</h2>
+              <div className="section-divider"></div>
             </div>
             
             <div className="space-y-4">
