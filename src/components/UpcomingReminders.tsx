@@ -1,7 +1,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Bell, CalendarCheck, Yoga, Stethoscope } from "lucide-react";
+import { Bell, CalendarCheck, Dumbbell, Stethoscope } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -11,7 +11,7 @@ interface Reminder {
   date: string;
   time: string;
   color: string;
-  icon: 'calendar' | 'yoga' | 'ultrasound';
+  icon: 'calendar' | 'exercise' | 'ultrasound';
 }
 
 interface UpcomingRemindersProps {
@@ -36,7 +36,7 @@ const UpcomingReminders: React.FC<UpcomingRemindersProps> = ({ className }) => {
       date: 'Mar 10',
       time: '5:00 PM',
       color: 'bg-pink-100 text-pink-500',
-      icon: 'yoga'
+      icon: 'exercise'
     },
     {
       id: '3',
@@ -52,8 +52,8 @@ const UpcomingReminders: React.FC<UpcomingRemindersProps> = ({ className }) => {
     switch (iconType) {
       case 'calendar':
         return <CalendarCheck className="h-2.5 w-2.5" />;
-      case 'yoga':
-        return <Yoga className="h-2.5 w-2.5" />;
+      case 'exercise':
+        return <Dumbbell className="h-2.5 w-2.5" />;
       case 'ultrasound':
         return <Stethoscope className="h-2.5 w-2.5" />;
       default:
