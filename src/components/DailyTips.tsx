@@ -37,7 +37,7 @@ const DailyTips: React.FC<DailyTipsProps> = ({ className }) => {
   ];
 
   return (
-    <Card className={cn("overflow-hidden bg-gradient-to-br from-amber-50 to-orange-100/60 shadow-sm", className)}>
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-amber-50 to-orange-100/60 shadow-sm h-full", className)}>
       <CardHeader className="pb-1 p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

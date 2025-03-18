@@ -76,14 +76,14 @@ const PregnancyJourney: React.FC<PregnancyJourneyProps> = ({ className }) => {
           </div>
           
           <div className="rounded-xl bg-white/90 shadow-sm p-2.5 flex flex-col">
-            <div className="flex justify-between items-center mb-2">
+            <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-1">
                 <Heart className="h-3 w-3 text-red-500" />
                 <span className="text-[9px] font-medium">Kick Counter</span>
               </div>
-              <div className="text-lg font-bold text-red-500">{kickCount}</div>
             </div>
-            <div className="flex-1 flex flex-col justify-between">
+            <div className="flex-1 flex flex-col items-center justify-center">
+              <div className="text-3xl font-bold text-red-500 mb-2">{kickCount}</div>
               <div className="text-[8px] text-center text-gray-500 mb-2">kicks recorded today</div>
               <Button 
                 className="w-full bg-red-100 hover:bg-red-200 text-red-500 text-[9px] h-5 mt-auto"

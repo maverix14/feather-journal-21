@@ -62,7 +62,7 @@ const UpcomingReminders: React.FC<UpcomingRemindersProps> = ({ className }) => {
   };
 
   return (
-    <Card className={cn("overflow-hidden bg-gradient-to-br from-cyan-50 to-blue-100/60 shadow-sm", className)}>
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-cyan-50 to-blue-100/60 shadow-sm h-full", className)}>
       <CardHeader className="pb-1 p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
