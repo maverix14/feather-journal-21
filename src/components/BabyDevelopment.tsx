@@ -10,7 +10,7 @@ interface BabyDevelopmentProps {
 
 const BabyDevelopment: React.FC<BabyDevelopmentProps> = ({ className }) => {
   return (
-    <Card className={cn("overflow-hidden bg-gradient-to-br from-baby-50 to-baby-100/70 dark:from-baby-50 dark:to-black/20 shadow-sm", className)}>
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-baby-50 to-baby-100/80 dark:from-baby-50 dark:to-black/20 shadow-sm", className)}>
       <CardHeader className="pb-1 p-3">
         <div className="flex items-center gap-2">
           <Baby className="h-4 w-4 text-baby-500 dark:text-baby-600" />
@@ -35,11 +35,11 @@ const BabyDevelopment: React.FC<BabyDevelopmentProps> = ({ className }) => {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-2 mt-1">
-            <div className="bg-white/80 dark:bg-white/10 rounded-lg p-2 shadow-sm">
+            <div className="bg-white/90 dark:bg-white/10 rounded-lg p-2 shadow-sm">
               <div className="text-center text-[11px] text-baby-600 dark:text-baby-500">LENGTH</div>
               <div className="text-center font-semibold text-[14px] mt-0.5">2.5 inches</div>
             </div>
-            <div className="bg-white/80 dark:bg-white/10 rounded-lg p-2 shadow-sm">
+            <div className="bg-white/90 dark:bg-white/10 rounded-lg p-2 shadow-sm">
               <div className="text-center text-[11px] text-baby-600 dark:text-baby-500">WEIGHT</div>
               <div className="text-center font-semibold text-[14px] mt-0.5">0.5 oz</div>
             </div>

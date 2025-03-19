@@ -14,7 +14,7 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
   const isMobile = useIsMobile();
   
   return (
-    <Card className={cn("overflow-hidden bg-gradient-to-br from-health-50 to-health-100/60 shadow-card h-full", className)}>
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-health-50 to-health-100/80 shadow-card h-full", className)}>
       <CardHeader className="pb-1 p-3">
         <div className="flex items-center gap-2">
           <Heart className="h-3.5 w-3.5 text-health-500" />
@@ -26,7 +26,7 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
           "grid gap-3 h-full", 
           isMobile ? "grid-cols-2" : "grid-cols-2"
         )}>
-          <div className="rounded-xl bg-white/90 dark:bg-white/10 shadow-sm p-2 flex flex-col h-full">
+          <div className="rounded-xl bg-white/95 dark:bg-white/10 shadow-sm p-2 flex flex-col h-full">
             <div className="text-center mb-1">
               <span className="text-[12px] font-medium text-health-600">Weight Tracking</span>
             </div>
@@ -49,7 +49,7 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
             </div>
           </div>
           
-          <div className="rounded-xl bg-white/90 dark:bg-white/10 shadow-sm p-2 flex flex-col h-full">
+          <div className="rounded-xl bg-white/95 dark:bg-white/10 shadow-sm p-2 flex flex-col h-full">
             <div className="text-center mb-1">
               <span className="text-[12px] font-medium text-health-600">Daily Nutrition</span>
             </div>

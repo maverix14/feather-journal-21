@@ -62,7 +62,7 @@ const UpcomingReminders: React.FC<UpcomingRemindersProps> = ({ className }) => {
   };
 
   return (
-    <Card className={cn("overflow-hidden bg-gradient-to-br from-reminder-50 to-reminder-100/60 shadow-card h-full", className)}>
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-reminder-50 to-reminder-100/80 shadow-card h-full", className)}>
       <CardHeader className="pb-1 p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -75,7 +75,7 @@ const UpcomingReminders: React.FC<UpcomingRemindersProps> = ({ className }) => {
       <CardContent className="p-3 pt-0">
         <div className={cn("space-y-1.5", isMobile && "pt-1")}>
           {reminders.map(reminder => (
-            <div key={reminder.id} className="rounded-lg bg-white/90 dark:bg-white/10 shadow-sm p-2 hover:bg-white transition-colors dark:hover:bg-white/20">
+            <div key={reminder.id} className="rounded-lg bg-white/95 dark:bg-white/10 shadow-sm p-2 hover:bg-white transition-colors dark:hover:bg-white/20">
               <div className="flex gap-2 items-start">
                 <div className={cn("rounded-md p-0.5", reminder.color)}>
                   {getIcon(reminder.icon)}

@@ -37,7 +37,7 @@ const DailyTips: React.FC<DailyTipsProps> = ({ className }) => {
   ];
 
   return (
-    <Card className={cn("overflow-hidden bg-gradient-to-br from-tip-50 to-tip-100/60 dark:from-tip-50 dark:to-black/20 shadow-card h-full", className)}>
+    <Card className={cn("overflow-hidden bg-gradient-to-br from-tip-50 to-tip-100/80 dark:from-tip-50 dark:to-black/20 shadow-card h-full", className)}>
       <CardHeader className="pb-1 p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -52,7 +52,7 @@ const DailyTips: React.FC<DailyTipsProps> = ({ className }) => {
           {tips.map(tip => (
             <div 
               key={tip.id} 
-              className="border-b border-tip-100/50 dark:border-tip-700/30 pb-1.5 last:border-b-0 last:pb-0 hover:bg-white/40 dark:hover:bg-white/10 p-1 rounded-sm transition-colors"
+              className="border-b border-tip-100/60 dark:border-tip-700/30 pb-1.5 last:border-b-0 last:pb-0 hover:bg-white/50 dark:hover:bg-white/10 p-1 rounded-sm transition-colors"
             >
               <h4 className="text-[13px] font-medium text-tip-700 dark:text-tip-500">{tip.title}</h4>
               <p className="text-[12px] text-gray-600 dark:text-gray-300">{tip.description}</p>
