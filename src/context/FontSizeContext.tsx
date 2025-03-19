@@ -1,6 +1,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 
+// Define font size options
 type FontSize = "small" | "medium" | "large";
 
 interface FontSizeProviderProps {
@@ -19,10 +20,15 @@ export function FontSizeProvider({
   children,
   defaultFontSize = "medium",
 }: FontSizeProviderProps) {
-  const [fontSize, setFontSize] = useState<FontSize>(
-    () => (localStorage.getItem("fontSize") as FontSize) || defaultFontSize
-  );
+  // Initialize from localStorage if available
+  const [fontSize, setFontSize] = useState<FontSize>(() => {
+    const savedSize = localStorage.getItem("fontSize");
+    return (savedSize === "small" || savedSize === "medium" || savedSize === "large") 
+      ? savedSize as FontSize 
+      : defaultFontSize;
+  });
 
+  // Apply font size class to document root when it changes
   useEffect(() => {
     const root = window.document.documentElement;
     
@@ -32,17 +38,23 @@ export function FontSizeProvider({
     // Add the current font size class
     root.classList.add(`text-size-${fontSize}`);
     
-    // Save the font size preference to localStorage
+    // Add CSS variables for scaling
+    if (fontSize === "small") {
+      root.style.setProperty("--font-size-scale", "0.85");
+    } else if (fontSize === "medium") {
+      root.style.setProperty("--font-size-scale", "1.0");
+    } else if (fontSize === "large") {
+      root.style.setProperty("--font-size-scale", "1.2");
+    }
+    
+    // Save to localStorage
     localStorage.setItem("fontSize", fontSize);
+    
+    console.log("Font size updated:", fontSize);
   }, [fontSize]);
 
-  const value = {
-    fontSize,
-    setFontSize,
-  };
-
   return (
-    <FontSizeContext.Provider value={value}>
+    <FontSizeContext.Provider value={{ fontSize, setFontSize }}>
       {children}
     </FontSizeContext.Provider>
   );

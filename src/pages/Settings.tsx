@@ -9,6 +9,7 @@ import { useSound } from "@/context/SoundContext";
 import { FileText, Info, Sun, Monitor, Moon, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { toast } from "@/hooks/use-toast";
 
 const Settings = () => {
   const { theme, setTheme } = useTheme();
@@ -19,6 +20,10 @@ const Settings = () => {
     if (size && (size === "small" || size === "medium" || size === "large")) {
       setFontSize(size);
       playSound("click");
+      toast({
+        title: "Font Size Updated",
+        description: `Font size set to ${size}`,
+      });
     }
   };
 
@@ -26,7 +31,20 @@ const Settings = () => {
     if (newTheme && (newTheme === "light" || newTheme === "dark" || newTheme === "system")) {
       setTheme(newTheme);
       playSound("click");
+      toast({
+        title: "Theme Updated",
+        description: `Theme set to ${newTheme}`,
+      });
     }
+  };
+
+  const handleSoundToggle = () => {
+    toggleSound();
+    playSound("click");
+    toast({
+      title: "Sound Settings Updated",
+      description: soundEnabled ? "Sound effects disabled" : "Sound effects enabled",
+    });
   };
 
   return (
@@ -73,7 +91,7 @@ const Settings = () => {
               
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <Sun className="w-4 h-4" />
+                  <FileText className="w-4 h-4" />
                   <label className="text-sm font-medium">Font Size</label>
                 </div>
                 <ToggleGroup 
@@ -139,10 +157,7 @@ const Settings = () => {
                 <Switch 
                   id="sound" 
                   checked={soundEnabled}
-                  onCheckedChange={() => {
-                    toggleSound();
-                    playSound("click");
-                  }}
+                  onCheckedChange={handleSoundToggle}
                 />
               </div>
             </div>
