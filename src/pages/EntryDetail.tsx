@@ -8,6 +8,7 @@ import BottomBar from "@/components/BottomBar";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
 import { MoodType } from "@/components/MoodSelector";
+import { getMoodColor, getMoodEmoji } from "@/lib/mood-utils";
 import BabyKickTracker from "@/components/BabyKickTracker";
 import SharingToggle from "@/components/SharingToggle";
 import AudioPlayer from "@/components/AudioPlayer";
@@ -22,40 +23,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
-const getMoodColor = (mood: MoodType | undefined) => {
-  switch (mood) {
-    case "happy":
-      return "#FEF7CD";
-    case "content":
-      return "#F2FCE2";
-    case "neutral":
-      return "#F1F0FB";
-    case "sad":
-      return "#D3E4FD";
-    case "stressed":
-      return "#FFDEE2";
-    default:
-      return "#FAFAFA";
-    }
-  };
-
-const getMoodEmoji = (mood: MoodType | undefined) => {
-  switch (mood) {
-    case "happy":
-      return "😊";
-    case "content":
-      return "😌";
-    case "neutral":
-      return "😐";
-    case "sad":
-      return "😔";
-    case "stressed":
-      return "😰";
-    default:
-      return null;
-    }
-  };
 
 const EntryDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -258,7 +225,7 @@ const EntryDetail = () => {
     );
   };
 
-  const moodColor = mood ? getMoodColor(mood) : "#FAFAFA";
+  const moodColor = getMoodColor(mood);
 
   if (!entry) {
     return (
@@ -299,7 +266,7 @@ const EntryDetail = () => {
           >
             {mood && (
               <span className="flex items-center justify-center w-5 h-5 rounded-full relative z-20 text-foreground" 
-                    style={{ backgroundColor: getMoodColor(mood) }}>
+                    style={{ backgroundColor: moodColor }}>
                 {getMoodEmoji(mood)}
               </span>
             )}

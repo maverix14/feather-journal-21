@@ -15,6 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { MoodType } from "./MoodSelector";
+import { getMoodColor, getMoodEmoji } from "@/lib/mood-utils";
 import { 
   Tooltip,
   TooltipContent,
@@ -63,40 +64,6 @@ const EntryCard: React.FC<EntryCardProps> = ({
     isPartnerEntry,
     sharedWithGroups = [],
   } = entry;
-
-  const getMoodEmoji = (mood: MoodType | undefined) => {
-    switch (mood) {
-      case "happy":
-        return "😊";
-      case "content":
-        return "😌";
-      case "neutral":
-        return "😐";
-      case "sad":
-        return "😔";
-      case "stressed":
-        return "😰";
-      default:
-        return null;
-    }
-  };
-
-  const getMoodColor = (mood: MoodType | undefined) => {
-    switch (mood) {
-      case "happy":
-        return "#FEF7CD";
-      case "content":
-        return "#F2FCE2";
-      case "neutral":
-        return "#F1F0FB";
-      case "sad":
-        return "#D3E4FD";
-      case "stressed":
-        return "#FFDEE2";
-      default:
-        return "transparent";
-    }
-  };
 
   const renderMediaPreview = () => {
     if (!media || media.length === 0) return null;
@@ -220,7 +187,7 @@ const EntryCard: React.FC<EntryCardProps> = ({
       {moodColor && (
         <div
           className="absolute inset-0 z-0"
-          style={{ backgroundColor: moodColor, opacity: 0.95 }}
+          style={{ backgroundColor: moodColor }}
         />
       )}
       {renderMediaPreview()}
@@ -327,7 +294,7 @@ const EntryCard: React.FC<EntryCardProps> = ({
         <div className="flex gap-2 items-center">
           {mood && (
             <span className="flex items-center justify-center w-5 h-5 rounded-full"
-                  style={{ backgroundColor: getMoodColor(mood) }}>
+                  style={{ backgroundColor: moodColor }}>
               {getMoodEmoji(mood)}
             </span>
           )}

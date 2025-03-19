@@ -44,7 +44,7 @@ const DailyTips: React.FC<DailyTipsProps> = ({ className }) => {
             <Lightbulb className="h-4 w-4 text-tip-500 dark:text-tip-700" />
             <h3 className="text-sm font-medium">Daily Tips</h3>
           </div>
-          <a href="#" className="text-[12px] text-tip-500 dark:text-tip-700 hover:underline">View all</a>
+          <a href="#" className="text-xs text-tip-500 dark:text-tip-700 hover:underline">View all</a>
         </div>
       </CardHeader>
       <CardContent className="p-3 pt-0">

@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 @layer base {
@@ -19,38 +20,38 @@
     --input: 214 32% 91%;
     --ring: 222 47% 11%;
     
-    /* Primary - Softer blue for light mode */
-    --primary: 224 76% 82%;
+    /* Primary - Changed from blue to grey for light mode */
+    --primary: 220 10% 70%;
     --primary-foreground: 0 0% 100%;
-    --primary-50: 224 100% 96%;
-    --primary-100: 224 95% 92%;
-    --primary-200: 224 90% 87%;
-    --primary-300: 224 85% 82%;
-    --primary-400: 224 80% 77%;
-    --primary-500: 224 76% 72%;
-    --primary-600: 224 70% 62%;
-    --primary-700: 224 65% 52%;
-    --primary-800: 224 70% 42%;
-    --primary-900: 224 75% 32%;
-    --primary-950: 224 80% 22%;
+    --primary-50: 220 10% 96%;
+    --primary-100: 220 10% 92%;
+    --primary-200: 220 10% 87%;
+    --primary-300: 220 10% 82%;
+    --primary-400: 220 10% 77%;
+    --primary-500: 220 10% 70%;
+    --primary-600: 220 10% 60%;
+    --primary-700: 220 10% 50%;
+    --primary-800: 220 10% 40%;
+    --primary-900: 220 10% 30%;
+    --primary-950: 220 10% 20%;
     
-    /* Secondary - More vibrant purple for light mode */
-    --secondary: 270 76% 86%;
+    /* Secondary - Changed from purple to grey for light mode */
+    --secondary: 220 10% 80%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-50: 270 100% 96%;
-    --secondary-100: 270 95% 92%;
-    --secondary-200: 270 90% 87%;
-    --secondary-300: 270 85% 82%;
-    --secondary-400: 270 80% 77%;
-    --secondary-500: 270 76% 72%;
-    --secondary-600: 270 70% 62%;
-    --secondary-700: 270 65% 52%;
-    --secondary-800: 270 70% 42%;
-    --secondary-900: 270 75% 32%;
-    --secondary-950: 270 80% 22%;
+    --secondary-50: 220 10% 96%;
+    --secondary-100: 220 10% 92%;
+    --secondary-200: 220 10% 87%;
+    --secondary-300: 220 10% 82%;
+    --secondary-400: 220 10% 77%;
+    --secondary-500: 220 10% 72%;
+    --secondary-600: 220 10% 62%;
+    --secondary-700: 220 10% 52%;
+    --secondary-800: 220 10% 42%;
+    --secondary-900: 220 10% 32%;
+    --secondary-950: 220 10% 22%;
     
     /* Accent - Warmer accent for light mode */
-    --accent: 0 76% 85%;
+    --accent: 0 0% 85%;
     --accent-foreground: 0 0% 100%;
     
     /* Muted */
@@ -86,45 +87,78 @@
     --tip-500: 38 100% 67%;
     --tip-700: 38 90% 47%;
     
+    /* Mood Colors for Light Mode */
+    --mood-happy: 50 100% 90%;
+    --mood-content: 142 60% 94%;
+    --mood-neutral: 240 20% 97%;
+    --mood-sad: 210 70% 95%;
+    --mood-stressed: 350 100% 95%;
+    
     /* Radius */
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Keep existing dark mode code */
+    /* Dark mode base colors */
     --background: 222 47% 10%;
     --foreground: 210 40% 98%;
     --card: 222 47% 15%;
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 15%;
     --popover-foreground: 210 40% 98%;
+    
+    /* Border & Input */
     --border: 217 33% 20%;
     --input: 217 33% 20%;
     --ring: 224 76% 48%;
+    
+    /* Primary - Grey for dark mode */
+    --primary: 220 10% 50%;
     --primary-foreground: 222 47% 11%;
+    
+    /* Secondary - Grey for dark mode */
+    --secondary: 220 10% 40%;
     --secondary-foreground: 222 47% 11%;
+    
+    /* Muted */
     --muted: 217 33% 18%;
     --muted-foreground: 215 20% 65%;
-    --accent: 0 76% 75%;
+    
+    /* Accent - Grey for dark mode */
+    --accent: 220 10% 25%;
     --accent-foreground: 0 0% 100%;
+    
+    /* Destructive */
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
+    
+    /* Component-specific themes for dark mode */
     --baby-50: 350 30% 25%;
     --baby-100: 350 25% 30%;
     --baby-500: 350 70% 60%;
     --baby-600: 350 80% 65%;
+    
     --health-50: 142 30% 25%;
     --health-100: 142 25% 30%;
     --health-400: 142 60% 55%;
     --health-500: 142 70% 60%;
     --health-600: 142 75% 65%;
+    
     --reminder-50: 195 30% 25%;
     --reminder-100: 195 25% 30%;
     --reminder-500: 195 70% 55%;
+    
     --tip-50: 38 30% 25%;
     --tip-100: 38 25% 30%;
     --tip-500: 38 70% 55%;
     --tip-700: 38 80% 65%;
+    
+    /* Mood Colors for Dark Mode */
+    --mood-happy: 50 70% 25%;
+    --mood-content: 142 40% 25%;
+    --mood-neutral: 240 20% 22%;
+    --mood-sad: 210 60% 25%;
+    --mood-stressed: 350 70% 25%;
   }
 }
 

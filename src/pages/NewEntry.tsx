@@ -1,9 +1,11 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import BottomBar from "@/components/BottomBar";
 import { cn } from "@/lib/utils";
 import MoodSelector, { MoodType } from "@/components/MoodSelector";
+import { getMoodColor } from "@/lib/mood-utils";
 import BabyKickTracker from "@/components/BabyKickTracker";
 import SharingToggle from "@/components/SharingToggle";
 import EntryHeading from "@/components/EntryHeading";
@@ -24,24 +26,7 @@ const NewEntry = () => {
   const [backgroundColor, setBackgroundColor] = useState("#FAFAFA");
 
   useEffect(() => {
-    const getMoodColor = (mood: MoodType | undefined) => {
-      switch (mood) {
-        case "happy":
-          return "#FEF7CD";
-        case "content":
-          return "#F2FCE2";
-        case "neutral":
-          return "#F1F0FB";
-        case "sad":
-          return "#D3E4FD";
-        case "stressed":
-          return "#FFDEE2";
-        default:
-          return "#FAFAFA";
-      }
-    };
-
-    setBackgroundColor(getMoodColor(mood));
+    setBackgroundColor(getMoodColor(mood) || "#FAFAFA");
   }, [mood]);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -103,7 +88,7 @@ const NewEntry = () => {
   return (
     <div
       className="min-h-screen pb-24 px-4 sm:px-16 md:px-24 lg:px-32 transition-colors duration-1000"
-      style={{ backgroundColor: backgroundColor }}
+      style={{ backgroundColor }}
     >
       <EntryHeading handleSubmit={handleSubmit} />
       
