@@ -28,39 +28,39 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
         )}>
           <div className="rounded-xl bg-white/90 dark:bg-white/10 shadow-sm p-2 flex flex-col h-full">
             <div className="text-center mb-1">
-              <span className="compact-card-title text-health-600">Weight Tracking</span>
+              <span className="text-[12px] font-medium text-health-600">Weight Tracking</span>
             </div>
             <div className="flex items-center justify-between px-1">
               <div className="flex items-center gap-1">
                 <Activity className="h-3 w-3 text-health-400" />
-                <span className="compact-card-label">This Week</span>
+                <span className="text-[11px] text-muted-foreground">This Week</span>
               </div>
               <div className="flex items-center">
                 <span className="text-health-500 text-xs font-bold">+</span>
                 <span className="text-health-500 text-sm font-bold">0.5</span>
-                <span className="compact-card-label ml-0.5">kg</span>
+                <span className="text-[11px] text-muted-foreground ml-0.5">kg</span>
               </div>
             </div>
             <div className="w-full mt-1.5 flex-grow flex flex-col justify-center">
               <div className="h-1.5 w-full bg-health-100 dark:bg-health-500/20 rounded-full overflow-hidden">
                 <div className="h-full bg-health-400 rounded-full" style={{ width: '60%' }}></div>
               </div>
-              <span className="compact-card-label block mt-0.5 text-center">Healthy weight gain on track</span>
+              <span className="text-[11px] block mt-0.5 text-center text-muted-foreground">Healthy weight gain on track</span>
             </div>
           </div>
           
           <div className="rounded-xl bg-white/90 dark:bg-white/10 shadow-sm p-2 flex flex-col h-full">
             <div className="text-center mb-1">
-              <span className="compact-card-title text-health-600">Daily Nutrition</span>
+              <span className="text-[12px] font-medium text-health-600">Daily Nutrition</span>
             </div>
             <div className="space-y-1.5 flex-grow flex flex-col justify-center">
               <div>
                 <div className="flex justify-between items-center mb-0.5">
                   <div className="flex items-center gap-1">
                     <Apple className="h-2.5 w-2.5 text-green-500" />
-                    <span className="compact-card-label">Protein</span>
+                    <span className="text-[11px] text-muted-foreground">Protein</span>
                   </div>
-                  <span className="compact-card-label">75%</span>
+                  <span className="text-[11px] text-muted-foreground">75%</span>
                 </div>
                 <Progress value={75} className="h-1 bg-green-100 dark:bg-green-900/30" indicatorColor="bg-green-500" />
               </div>
@@ -68,9 +68,9 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
                 <div className="flex justify-between items-center mb-0.5">
                   <div className="flex items-center gap-1">
                     <Droplets className="h-2.5 w-2.5 text-blue-500" />
-                    <span className="compact-card-label">Hydration</span>
+                    <span className="text-[11px] text-muted-foreground">Hydration</span>
                   </div>
-                  <span className="compact-card-label">60%</span>
+                  <span className="text-[11px] text-muted-foreground">60%</span>
                 </div>
                 <Progress value={60} className="h-1 bg-blue-100 dark:bg-blue-900/30" indicatorColor="bg-blue-500" />
               </div>
@@ -78,9 +78,9 @@ const MomsHealth: React.FC<MomsHealthProps> = ({ className }) => {
                 <div className="flex justify-between items-center mb-0.5">
                   <div className="flex items-center gap-1">
                     <Zap className="h-2.5 w-2.5 text-amber-500" />
-                    <span className="compact-card-label">Vitamins</span>
+                    <span className="text-[11px] text-muted-foreground">Vitamins</span>
                   </div>
-                  <span className="compact-card-label">90%</span>
+                  <span className="text-[11px] text-muted-foreground">90%</span>
                 </div>
                 <Progress value={90} className="h-1 bg-amber-100 dark:bg-amber-900/30" indicatorColor="bg-amber-500" />
               </div>

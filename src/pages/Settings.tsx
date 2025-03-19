@@ -4,23 +4,14 @@ import Header from "@/components/Header";
 import BottomBar from "@/components/BottomBar";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { Slider } from "@/components/ui/slider";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Bell, Volume2, Info, FileText, Monitor, Sun, Moon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/context/ThemeContext";
-import { Moon, Sun, Globe, Volume2, Bell, Info, FileText, Monitor } from "lucide-react";
 
 const Settings = () => {
   const { toast } = useToast();
   const { theme, setTheme } = useTheme();
   
-  const handleSave = () => {
-    toast({
-      title: "Settings saved",
-      description: "Your preferences have been updated",
-    });
-  };
-
   return (
     <div className="page-container">
       <Header />
@@ -46,7 +37,14 @@ const Settings = () => {
                   <Button
                     variant={theme === "light" ? "default" : "outline"}
                     className="flex items-center justify-center gap-2"
-                    onClick={() => setTheme("light")}
+                    onClick={() => {
+                      setTheme("light");
+                      toast({
+                        title: "Theme updated",
+                        description: "Light theme applied",
+                        duration: 1000,
+                      });
+                    }}
                   >
                     <Sun className="h-4 w-4" />
                     <span>Light</span>
@@ -54,7 +52,14 @@ const Settings = () => {
                   <Button
                     variant={theme === "dark" ? "default" : "outline"}
                     className="flex items-center justify-center gap-2"
-                    onClick={() => setTheme("dark")}
+                    onClick={() => {
+                      setTheme("dark");
+                      toast({
+                        title: "Theme updated",
+                        description: "Dark theme applied",
+                        duration: 1000,
+                      });
+                    }}
                   >
                     <Moon className="h-4 w-4" />
                     <span>Dark</span>
@@ -62,73 +67,19 @@ const Settings = () => {
                   <Button
                     variant={theme === "system" ? "default" : "outline"}
                     className="flex items-center justify-center gap-2"
-                    onClick={() => setTheme("system")}
+                    onClick={() => {
+                      setTheme("system");
+                      toast({
+                        title: "Theme updated",
+                        description: "Using system preference",
+                        duration: 1000,
+                      });
+                    }}
                   >
                     <Monitor className="h-4 w-4" />
                     <span>System</span>
                   </Button>
                 </div>
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <div className="flex items-center gap-2">
-                    <Moon className="w-4 h-4" />
-                    <label htmlFor="dark-mode" className="text-sm font-medium">
-                      Dark Mode
-                    </label>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    Switch between light and dark themes
-                  </p>
-                </div>
-                <Switch 
-                  id="dark-mode" 
-                  checked={theme === "dark"}
-                  onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Sun className="w-4 h-4" />
-                  <label className="text-sm font-medium">Font Size</label>
-                </div>
-                <p className="text-xs text-muted-foreground mb-2">
-                  Adjust the size of text throughout the app
-                </p>
-                <Slider 
-                  defaultValue={[16]} 
-                  max={24} 
-                  min={12} 
-                  step={1}
-                />
-                <div className="flex justify-between text-xs text-muted-foreground pt-1">
-                  <span>Small</span>
-                  <span>Large</span>
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Globe className="w-4 h-4" />
-                  <label className="text-sm font-medium">Language</label>
-                </div>
-                <p className="text-xs text-muted-foreground mb-2">
-                  Select your preferred language
-                </p>
-                <Select defaultValue="en">
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select language" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="en">English</SelectItem>
-                    <SelectItem value="es">Español</SelectItem>
-                    <SelectItem value="fr">Français</SelectItem>
-                    <SelectItem value="de">Deutsch</SelectItem>
-                    <SelectItem value="pt">Português</SelectItem>
-                  </SelectContent>
-                </Select>
               </div>
             </div>
           </div>
@@ -153,7 +104,17 @@ const Settings = () => {
                     Receive notifications for new activity
                   </p>
                 </div>
-                <Switch id="push-notifications" defaultChecked />
+                <Switch 
+                  id="push-notifications" 
+                  defaultChecked 
+                  onCheckedChange={(checked) => {
+                    toast({
+                      title: checked ? "Notifications enabled" : "Notifications disabled",
+                      description: checked ? "You will receive push notifications" : "Push notifications turned off",
+                      duration: 1000,
+                    });
+                  }}
+                />
               </div>
               
               <div className="flex items-center justify-between">
@@ -168,7 +129,16 @@ const Settings = () => {
                     Play sounds for app interactions
                   </p>
                 </div>
-                <Switch id="sound" />
+                <Switch 
+                  id="sound" 
+                  onCheckedChange={(checked) => {
+                    toast({
+                      title: checked ? "Sound effects enabled" : "Sound effects disabled",
+                      description: checked ? "You will hear sound effects" : "Sound effects turned off",
+                      duration: 1000,
+                    });
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -192,10 +162,6 @@ const Settings = () => {
               </Button>
             </div>
           </div>
-          
-          <Button onClick={handleSave} className="w-full neo-shadow hover:neo-inset transition-all duration-300">
-            Save Changes
-          </Button>
         </div>
       </main>
       

@@ -69,7 +69,7 @@ const UpcomingReminders: React.FC<UpcomingRemindersProps> = ({ className }) => {
             <Bell className="h-3.5 w-3.5 text-reminder-500" />
             <h3 className="text-xs font-medium">Upcoming Reminders</h3>
           </div>
-          <a href="#" className="text-[9px] text-reminder-500 hover:underline">View all</a>
+          <a href="#" className="text-[11px] text-reminder-500 hover:underline">View all</a>
         </div>
       </CardHeader>
       <CardContent className="p-3 pt-0">
@@ -81,10 +81,10 @@ const UpcomingReminders: React.FC<UpcomingRemindersProps> = ({ className }) => {
                   {getIcon(reminder.icon)}
                 </div>
                 <div className="flex-1">
-                  <div className="compact-card-label">
+                  <div className="text-[11px] text-muted-foreground">
                     {reminder.date}, {reminder.time}
                   </div>
-                  <div className="compact-card-title">{reminder.title}</div>
+                  <div className="text-[12px] font-medium">{reminder.title}</div>
                 </div>
               </div>
             </div>

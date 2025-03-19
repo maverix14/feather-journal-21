@@ -1,5 +1,6 @@
+
 import React, { useState } from "react";
-import { Settings, User, Bookmark, Wallet, LogOut, Sparkle, LogIn, Info } from "lucide-react";
+import { Settings, User, Bookmark, Wallet, LogOut, Sparkle, LogIn, Info, Moon, Sun } from "lucide-react";
 import Logo from "./Logo";
 import { cn } from "@/lib/utils";
 import {
@@ -24,6 +25,8 @@ import {
 import { Button } from "@/components/ui/button";
 import RegisterBenefitsDialog from "./RegisterBenefitsDialog";
 import { benefitContexts } from "@/config/accountBenefits";
+import { useTheme } from "@/context/ThemeContext";
+import { Switch } from "@/components/ui/switch";
 
 interface HeaderProps {
   className?: string;
@@ -34,6 +37,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
   const navigate = useNavigate();
   const [showGuestProfileDialog, setShowGuestProfileDialog] = useState(false);
   const [showRegisterDialog, setShowRegisterDialog] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   const handleLogout = () => {
     if (isGuestMode) {
@@ -44,6 +48,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
       toast({
         title: "Logged out",
         description: "You have been successfully logged out.",
+        duration: 1000,
       });
       navigate("/landing");
     }
@@ -55,6 +60,16 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
     } else {
       navigate("/profile");
     }
+  };
+
+  const toggleDarkMode = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    toast({
+      title: newTheme === "dark" ? "Dark mode enabled" : "Light mode enabled",
+      description: `You are now using ${newTheme} mode`,
+      duration: 1000,
+    });
   };
 
   return (
@@ -88,6 +103,26 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
                 </div>
               </div>
             </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            
+            {/* Dark Mode Toggle */}
+            <DropdownMenuItem className="px-2 py-1.5">
+              <div className="flex items-center justify-between w-full">
+                <div className="flex items-center">
+                  {theme === "dark" ? (
+                    <Moon className="mr-2 h-4 w-4" />
+                  ) : (
+                    <Sun className="mr-2 h-4 w-4" />
+                  )}
+                  <span>Dark Mode</span>
+                </div>
+                <Switch 
+                  checked={theme === "dark"}
+                  onCheckedChange={toggleDarkMode}
+                />
+              </div>
+            </DropdownMenuItem>
+            
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
               <Link to="/bookmarks" className="flex items-center cursor-pointer">
