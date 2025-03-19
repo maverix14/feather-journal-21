@@ -7,10 +7,6 @@
 
 /* Base styles */
 @layer base {
-  :root {
-    --font-size-scale: 1.0;
-  }
-
   * {
     @apply border-border;
   }
@@ -18,56 +14,6 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  /* Font size scaling classes */
-  .text-size-small {
-    --font-size-scale: 0.85;
-  }
-
-  .text-size-medium {
-    --font-size-scale: 1.0;
-  }
-
-  .text-size-large {
-    --font-size-scale: 1.2;
-  }
-
-  /* Scale text according to font size setting */
-  h1, .heading-1 {
-    font-size: calc(1.75rem * var(--font-size-scale));
-  }
-
-  h2, .heading-2 {
-    font-size: calc(1.5rem * var(--font-size-scale));
-  }
-
-  h3, .heading-3 {
-    font-size: calc(1.25rem * var(--font-size-scale));
-  }
-
-  p, .body-text {
-    font-size: calc(1rem * var(--font-size-scale));
-  }
-
-  .text-xs {
-    font-size: calc(0.75rem * var(--font-size-scale));
-  }
-
-  .text-sm {
-    font-size: calc(0.875rem * var(--font-size-scale));
-  }
-
-  .text-base {
-    font-size: calc(1rem * var(--font-size-scale));
-  }
-
-  .text-lg {
-    font-size: calc(1.125rem * var(--font-size-scale));
-  }
-
-  .text-xl {
-    font-size: calc(1.25rem * var(--font-size-scale));
   }
 }
 

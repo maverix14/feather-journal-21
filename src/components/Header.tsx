@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import { Settings, User, Bookmark, Wallet, LogOut, Sparkle, LogIn, Info, Moon, Sun, Monitor } from "lucide-react";
+import { Settings, User, Bookmark, Wallet, LogOut, Sparkle, LogIn, Info } from "lucide-react";
 import Logo from "./Logo";
 import { cn } from "@/lib/utils";
 import {
@@ -10,14 +9,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "@/components/ui/use-toast";
 import { useAuth } from "@/context/AuthContext";
-import { useTheme } from "@/context/ThemeContext";
-import { useSound } from "@/context/SoundContext";
 import { 
   Dialog,
   DialogContent,
@@ -36,14 +31,11 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ className }) => {
   const { logout, user, isGuestMode } = useAuth();
-  const { theme, setTheme } = useTheme();
-  const { playSound } = useSound();
   const navigate = useNavigate();
   const [showGuestProfileDialog, setShowGuestProfileDialog] = useState(false);
   const [showRegisterDialog, setShowRegisterDialog] = useState(false);
 
   const handleLogout = () => {
-    playSound("click");
     if (isGuestMode) {
       // If in guest mode, show the register benefits dialog
       setShowRegisterDialog(true);
@@ -58,18 +50,10 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
   };
 
   const handleProfileClick = () => {
-    playSound("click");
     if (isGuestMode) {
       setShowGuestProfileDialog(true);
     } else {
       navigate("/profile");
-    }
-  };
-
-  const handleThemeChange = (value: string) => {
-    if (value === "light" || value === "dark" || value === "system") {
-      setTheme(value);
-      playSound("click");
     }
   };
 
@@ -104,25 +88,6 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
                 </div>
               </div>
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            
-            {/* Theme toggle in dropdown menu */}
-            <DropdownMenuLabel>Theme</DropdownMenuLabel>
-            <DropdownMenuRadioGroup value={theme} onValueChange={handleThemeChange}>
-              <DropdownMenuRadioItem value="light" className="flex items-center cursor-pointer">
-                <Sun className="mr-2 h-4 w-4" />
-                <span>Light</span>
-              </DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="dark" className="flex items-center cursor-pointer">
-                <Moon className="mr-2 h-4 w-4" />
-                <span>Dark</span>
-              </DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="system" className="flex items-center cursor-pointer">
-                <Monitor className="mr-2 h-4 w-4" />
-                <span>System</span>
-              </DropdownMenuRadioItem>
-            </DropdownMenuRadioGroup>
-            
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
               <Link to="/bookmarks" className="flex items-center cursor-pointer">
@@ -172,7 +137,6 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
           to="/insights"
           className="w-10 h-10 flex items-center justify-center rounded-full glass-morphism hover:bg-white/10 transition-all duration-300"
           aria-label="Insights"
-          onClick={() => playSound("click")}
         >
           <Sparkle className="w-5 h-5 text-foreground" />
         </Link>

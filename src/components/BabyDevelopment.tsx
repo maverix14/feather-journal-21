@@ -29,19 +29,19 @@ const BabyDevelopment: React.FC<BabyDevelopmentProps> = ({ className }) => {
             </div>
           </div>
           <div className="text-center">
-            <h4 className="compact-card-title mb-1.5">Week 12 Highlights</h4>
-            <p className="compact-card-content text-gray-700 dark:text-gray-300 leading-tight">
+            <h4 className="font-medium text-[11px] mb-1.5">Week 12 Highlights</h4>
+            <p className="text-[10px] text-gray-700 dark:text-gray-300 leading-tight">
               Your baby's lungs are forming air sacs, eyes shifting to the front, and ears moving to the sides!
             </p>
           </div>
           <div className="grid grid-cols-2 gap-2 mt-1">
             <div className="bg-white/80 dark:bg-white/10 rounded-lg p-2 shadow-sm">
-              <div className="text-center compact-card-label text-baby-600 dark:text-baby-500">LENGTH</div>
-              <div className="text-center compact-card-data mt-0.5">2.5 inches</div>
+              <div className="text-center text-[9px] text-baby-600 dark:text-baby-500">LENGTH</div>
+              <div className="text-center font-semibold text-[12px] mt-0.5">2.5 inches</div>
             </div>
             <div className="bg-white/80 dark:bg-white/10 rounded-lg p-2 shadow-sm">
-              <div className="text-center compact-card-label text-baby-600 dark:text-baby-500">WEIGHT</div>
-              <div className="text-center compact-card-data mt-0.5">0.5 oz</div>
+              <div className="text-center text-[9px] text-baby-600 dark:text-baby-500">WEIGHT</div>
+              <div className="text-center font-semibold text-[12px] mt-0.5">0.5 oz</div>
             </div>
           </div>
         </div>

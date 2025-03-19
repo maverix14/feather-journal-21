@@ -44,7 +44,7 @@ const DailyTips: React.FC<DailyTipsProps> = ({ className }) => {
             <Lightbulb className="h-4 w-4 text-tip-500 dark:text-tip-700" />
             <h3 className="text-sm font-medium">Daily Tips</h3>
           </div>
-          <a href="#" className="compact-card-label hover:underline">View all</a>
+          <a href="#" className="text-[10px] text-tip-500 dark:text-tip-700 hover:underline">View all</a>
         </div>
       </CardHeader>
       <CardContent className="p-3 pt-0">
@@ -54,8 +54,8 @@ const DailyTips: React.FC<DailyTipsProps> = ({ className }) => {
               key={tip.id} 
               className="border-b border-tip-100/50 dark:border-tip-700/30 pb-1.5 last:border-b-0 last:pb-0 hover:bg-white/40 dark:hover:bg-white/10 p-1 rounded-sm transition-colors"
             >
-              <h4 className="compact-card-title text-tip-700 dark:text-tip-500">{tip.title}</h4>
-              <p className="compact-card-content text-gray-600 dark:text-gray-300">{tip.description}</p>
+              <h4 className="text-[11px] font-medium text-tip-700 dark:text-tip-500">{tip.title}</h4>
+              <p className="text-[10px] text-gray-600 dark:text-gray-300">{tip.description}</p>
             </div>
           ))}
         </div>
